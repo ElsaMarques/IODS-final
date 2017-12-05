@@ -1,0 +1,26 @@
+---
+title: "IODS Final assignment"
+output:
+  html_document:
+    author: "ElsaMarques"
+    code_folding: hide
+    fig_height: 4
+    fig_width: 6
+    highlight: espresso
+    number_sections: yes
+    toc: yes
+    toc_float: yes 
+---
+
+***
+  
+```{r child = "Method1.Rmd"}
+```
+  
+***
+
+```{r child = "Method2.Rmd"}
+```
+  
+***
+

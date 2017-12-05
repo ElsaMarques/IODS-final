@@ -1,6 +1,7 @@
 ---
 title: "IODS course project"
-author: "**Elsa Marques**"
+author: "**Elsa Isabel de Oliveira Marques**"
+email: elsa.marques@helsinki.fi / elsaoliveiramarques@gmail.com
 date: "1 December 2017"
 output:
   html_document:
