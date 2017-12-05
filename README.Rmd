@@ -1,19 +1,24 @@
 
-title	author	date	output
+---
+title: "IODS course project"
+author: "**Elsa Marques**"
+date: "1 November 2017"
+output:
+  html_document:
+    highlight: espresso
+    toc: yes
+---
 
-IODS course project
-**Elsa Marques**
-1 December 2017
-html_document
-highlight	toc
-espresso
-true
+```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+```
 
 **You can also check the finalized course diary by Elsa Marques:**
-
-https://github.com/ElsaMarques/IODS-project.git
 
 Course diary link:
 
 https://elsamarques.github.io/IODS-project/
+
+Repository used for the course diary:
+
+https://github.com/ElsaMarques/IODS-project.git
