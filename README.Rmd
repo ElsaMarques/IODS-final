@@ -1,0 +1,19 @@
+
+title	author	date	output
+
+IODS course project
+**Elsa Marques**
+1 December 2017
+html_document
+highlight	toc
+espresso
+true
+knitr::opts_chunk$set(echo = TRUE)
+
+**You can also check the finalized course diary by Elsa Marques:**
+
+https://github.com/ElsaMarques/IODS-project.git
+
+Course diary link:
+
+https://elsamarques.github.io/IODS-project/
