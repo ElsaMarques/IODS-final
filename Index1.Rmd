@@ -2,7 +2,7 @@
 title: "IODS Final assignment"
 output:
   html_document:
-    author: "ElsaMarques"
+    author: Elsa Isabel de Oliveira Marques
     code_folding: hide
     fig_height: 4
     fig_width: 6
@@ -10,17 +10,31 @@ output:
     number_sections: yes
     toc: yes
     toc_float: yes 
+    includes:
+      in_header: https://elsamarques.github.io/IODS-final/ 
 ---
 
-***
-  
-```{r child = "Method1.Rmd"}
-```
-  
-***
 
-```{r child = "Method2.Rmd"}
-```
-  
-***
+{r cols.print=3, rows.print=3}
+mtcars
 
+
+The index file and your GitHub webpage should include:
+
+Your full name, date and email address at the beginning of the page. Use the yaml header of the RMarkdown document to set these.
+
+Brief description of the "research question" you are exploring, possibly including your hypothesis (max 2 points)
+
+A link to your data wrangling script. See the general instructions. (max 5 points)
+
+Description of your data and its variables. Where is the data from, what does it relate to, what do the variables represent, what has been done to the data before analysis? (max 2 points)
+
+Visually clear and interesting explorations of the variables of interest in the data, from the point of view of your research question. Include interpretations of the distributions and relationships of the variables. Use captions to draw the reader’s focus on the interesting parts of your tables and graphics. (max 8 points)
+
+Brief description of the method(s) you are using in your own words (max 3 points)
+
+Presentation of the results of your analysis including visualizations and summaries and a thorough interpretation of the results including a validation analysis of the method. (max 16 points)
+
+Conclusions and discussion (max 2 points)
+
+An ‘abstract’ at the beginning of the page with a summary of your analysis (max 2 points)

@@ -11,3 +11,20 @@ This is an R Markdown document. Markdown is a simple formatting syntax for autho
 
 When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
 
+example of a plot : 
+```{r}
+library(FactoMineR)
+library(ggplot2)
+
+data(tea)
+mca <- MCA(tea, graph = FALSE)
+
+cats = apply(tea, 2, function(x) nlevels(as.factor(x)))
+
+mca_obs_df = data.frame(mca$ind$coord)
+mca_obs_df
+
+mca_vars_df = data.frame(mca$var$coord, Variable = rep(names(cats), cats))
+ggplot(data=mca_vars_df, aes(x = Dim.1, y = Dim.2, label = rownames(mca_vars_df))) + geom_hline(yintercept = 0, colour = "black") + geom_vline(xintercept = 0, colour = "black") + geom_text(aes(colour=Variable)) + ggtitle("MCA plot")
+
+```
