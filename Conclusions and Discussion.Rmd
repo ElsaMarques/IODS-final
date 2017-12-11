@@ -1,0 +1,19 @@
+---
+title: "Conclusions and Discussion"
+author: "Elsa Marques"
+date: "12/11/2017"
+output: 
+  html_document:
+    code_folding: hide
+    fig_height: 4
+    fig_width: 6
+    highlight: espresso
+    number_sections: yes
+    toc: yes
+    toc_float: yes 
+---
+
+# - Conclusions and discussion 
+
+
+Conclusions and discussion (max 2 points)

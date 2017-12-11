@@ -5,7 +5,9 @@ author:
   email: "elsa.marques@helsinki.fi"
 date: "10/12/2017"
 abstract:
-  An ‘abstract’ at the beginning of the page with a summary of your analysis (max 2 points)
+  This file describes my work for the final project of the Open Data Science course. I am using for this project the "hobbies" dataset, available in the FactoMineR libray. 
+  This dataset and its analysis will provide answers to some stereoyped ideas that gender, profession, age, marital status would define the type and amount of hobbies enquired people undertook. 
+  Under the shown analysis one can verify that ??? is not really affecting the type of hobbies selected, while ?? and ?? seem to have a stronger impact in the hobbies you decide to perform. Also the amount of activities taken by enquired people seems to be related with... ?? 
   
 output:
   html_document:    
@@ -24,7 +26,26 @@ output:
 ```
   
 ***
+  
+```{r child = "MCA.Rmd"}
+```
+  
+***
+  
+```{r child = "Linear Regression.Rmd"}
+```
+  
+***
+  
+```{r child = "LDA.Rmd"}
+```
+  
+***
 
+```{r child = "Conclusions and Discussion.Rmd"}
+```
+  
+***
 
  Also you can use these datasets from the Factominer-package to do Multiple Correspondence Analysis:
 
@@ -40,40 +61,6 @@ Hobbies
 
 
 
-
-# - Load data and explore data summary and dimensions 
-```{r, echo = FALSE}
-
-```
-
-{r cols.print=3, rows.print=3}
-mtcars
-
-
-# - Data Analysis 
-
-Visually clear and interesting explorations of the variables of interest in the data, from the point of view of your research question. Include interpretations of the distributions and relationships of the variables. Use captions to draw the reader’s focus on the interesting parts of your tables and graphics. (max 8 points)
-
-Brief description of the method(s) you are using in your own words (max 3 points)
-
-Presentation of the results of your analysis including visualizations and summaries and a thorough interpretation of the results including a validation analysis of the method. (max 16 points)
-
-## - llk
-
-## - adada
-
-
-# - Conclusions and discussion 
-
-Conclusions and discussion (max 2 points)
-
-
-
-Visually clear and interesting explorations of the variables of interest in the data, from the point of view of your research question. Include interpretations of the distributions and relationships of the variables. Use captions to draw the reader’s focus on the interesting parts of your tables and graphics. (max 8 points)
-
-Brief description of the method(s) you are using in your own words (max 3 points)
-
-Presentation of the results of your analysis including visualizations and summaries and a thorough interpretation of the results including a validation analysis of the method. (max 16 points)
 
 
 

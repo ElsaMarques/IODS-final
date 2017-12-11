@@ -1,0 +1,36 @@
+---
+title: "LDA"
+author: "Elsa Marques"
+date: "12/11/2017"
+output: 
+  html_document:    
+    code_folding: hide
+    fig_height: 4
+    fig_width: 6
+    highlight: espresso
+    number_sections: yes
+    toc: yes
+    toc_float: yes 
+---
+
+ > Visually clear and interesting explorations of the variables of interest in the data, from the point of view of your research question. Include interpretations of the distributions and relationships of the variables. Use captions to draw the reader’s focus on the interesting parts of your tables and graphics. (max 8 points)
+ 
+ > Presentation of the results of your analysis including visualizations and summaries and a thorough interpretation of the results including a validation analysis of the method. (max 16 points)
+ 
+## - LDA
+
+Brief description of the method(s) you are using in your own words (max 3 points)
+
+
+(on categorized grades for example)
+
+```{r, echo = FALSE}
+
+```
+
+
+
+Visually clear and interesting explorations of the variables of interest in the data, from the point of view of your research question. Include interpretations of the distributions and relationships of the variables. Use captions to draw the reader’s focus on the interesting parts of your tables and graphics. (max 8 points)
+
+
+Presentation of the results of your analysis including visualizations and summaries and a thorough interpretation of the results including a validation analysis of the method. (max 16 points)

@@ -15,16 +15,47 @@ output:
 
 ### Author's Repository: https://elsamarques.github.io/IODS-final/ {.unnumbered}
 
-# - Research topic and hypothesis 
-
- > For this exercise I am using the hobbies dataset that can be found in the FactoMineR libray. I will try to evaluate how different are the hobbies undertaken by gender, age, marital status and by the person main professions. Assuming that more demanding professions will leave less space for hobbies or for more less time consuming hobbies. Also there is some hobbies that are stereotypically associated with one or the other gender of the enquired people.
 
 # - Wrangling data 
 
-## - [data wrangling script]() 
+## - Description of the original data set
 
-A link to your data wrangling script. See the general instructions. (max 5 points) 
+ > The chosen data is originated from an enquiry about the type hobbies and amount of hobbies undertaken by the enquired people. The data was collect ... in and currently available in the FactoMiner library. 
 
-## - Description of the chosen data set and its variables. 
 
+## - [Data wrangling script](https://github.com/ElsaMarques/IODS-final/blob/master/crerate%20IODS-final.R) 
+
+- In order to perform the analysis I excluded from the data set all rows that included NA values; 
+
+- The data needed to be scaled / standardized in order to perform MCA analysis, since the original data was not presenting the same variance range in all the variables; 
+
+- Subsets of data were created in order to further validate the research hypothesis:
+  - Hobbies divided by Sports, Art , Handcraft and Charity related categories 
+  
+  - Data was grouped by age ; gender ; profession and marital status
+  
+
+  
+
+# - Research topic and hypothesis 
+
+ > For this exercise I am using the hobbies dataset that can be found in the FactoMineR libray. I will try to evaluate how different are the hobbies undertaken by gender, age, marital status and by the enquired professions. Assuming that more demanding professions will leave less space for hobbies or for more less time consuming hobbies. Also there is some hobbies that are stereotypically associated with one or the other gender of the enquired people.
+ 
+ 
+To explore if my hypothesis holds true, I explored the data trying to understand the following points: 
+
+   - What kind of hobbies are more trendy among each Age, Gender, Profession or Marital Status group.
+  
+    - Linear regressions amongst the following variables:
+  
+      - Hobbies categories Vs Age 
+      - Hobbies categories Vs Gender 
+      - Hobbies categories Vs Profession
+      - Hobbies categories Vs Marital Status
+  
+      - Number of activities Vs Age
+      - Number of activities Vs Gender
+      - Number of activities Vs Profession 
+      - Number of activities Vs Marital Status
+ 
 Where is the data from, what does it relate to, what do the variables represent, what has been done to the data before analysis? (max 2 points)
