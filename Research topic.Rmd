@@ -1,0 +1,30 @@
+---
+title: "Research topic"
+author: "Elsa Marques"
+date: "12/11/2017"
+output: 
+  html_document:
+    code_folding: hide
+    fig_height: 4
+    fig_width: 6
+    highlight: espresso
+    number_sections: yes
+    toc: yes
+    toc_float: yes
+---
+
+### Author's Repository: https://elsamarques.github.io/IODS-final/ {.unnumbered}
+
+# - Research topic and hypothesis 
+
+ > For this exercise I am using the hobbies dataset that can be found in the FactoMineR libray. I will try to evaluate how different are the hobbies undertaken by gender, age, marital status and by the person main professions. Assuming that more demanding professions will leave less space for hobbies or for more less time consuming hobbies. Also there is some hobbies that are stereotypically associated with one or the other gender of the enquired people.
+
+# - Wrangling data 
+
+## - [data wrangling script]() 
+
+A link to your data wrangling script. See the general instructions. (max 5 points) 
+
+## - Description of the chosen data set and its variables. 
+
+Where is the data from, what does it relate to, what do the variables represent, what has been done to the data before analysis? (max 2 points)

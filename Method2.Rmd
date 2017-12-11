@@ -1,7 +1,0 @@
----
-title: "Method2"
-author: "Elsa Marques"
-date: "12/5/2017"
-output: html_document
----
-
