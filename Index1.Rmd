@@ -47,16 +47,6 @@ output:
   
 ***
 
- Also you can use these datasets from the Factominer-package to do Multiple Correspondence Analysis:
-
-Hobbies
-
-
-- MCA (on the categorical variables, perhaps categorize more variables?)
-
-- Linear regression (for the grades variable, for example)
-
-- LDA (on categorized grades for example)
 
 
 

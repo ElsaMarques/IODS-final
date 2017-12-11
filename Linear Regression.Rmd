@@ -21,3 +21,39 @@ output:
 ## - Linear regresssion
 
 Brief description of the method(s) you are using in your own words (max 3 points)
+
+R makes it easy to graphically explore the validity of your model assumptions. If you give a linear model object as the first argument to the plot() function, the function automatically assumes you want diagnostic plots and will produce them. You can check the help page of plotting an lm object by typing ?plot.lm or help(plot.lm) to the R console.
+
+```{r, echo=FALSE}
+
+```
+
+ggpairs(data = learning2014, mapping = aes(col = gender, alpha = 0.3), lower = list(combo = wrap("facethist", bins = 20)))
+
+
+# plot with the 
+p1 <- ggplot(data = learning2014, aes(x = Attitude, y = Points, col = gender))
+
+# define the visualization type (points)
+p2 <- p1 + geom_point()
+
+# add a regression line
+p3 <- p2 + geom_smooth(method = "lm")
+
+
+#Linear model with three explanatory variables 
+my_model <- lm(formula = Points ~ Attitude + stra + surf, data = learning2014)
+
+#Summary of the linear model 
+summary(my_model)
+
+
+
+#Graphical model validation 
+library(ggfortify)
+
+autoplot(my_model, which= c(1, 2, 5)) +
+     theme_bw()
+     
+     
+
