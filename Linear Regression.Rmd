@@ -19,6 +19,7 @@ Linear regression allows you to test the relationship between a target variable 
 
 - To explore the previously mentioned hypothesis I check if there is any relationship between the Number of Activities and Age, Profession, Marital Status and Gender. 
 
+
 ```{r, echo = FALSE}
 hobbies_model <- lm(formula = N.Act ~ Age + Prof + Gender + Marital.St , data = Hobbies)
 summary(hobbies_model)

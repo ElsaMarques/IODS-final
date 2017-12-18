@@ -19,8 +19,8 @@ output:
 
 ### - For the overall data 
 
-```{r, echo = FALSE}
-Hobbies <- read.table("data/hobbies_.csv", row.names = 1 , header = TRUE, sep = ",")
+```{r}
+Hobbies <- read.table("data/hobbies_.csv", header = TRUE, sep = ",")
 head(Hobbies, n = 10)
 summary(Hobbies)
 ```
@@ -29,8 +29,8 @@ summary(Hobbies)
 
 - Generic_Hobbies include reading ("Read"), listening to music ("L.Music"), going to the cinema ("Cinema"), using the computer ("Comp"), watching Tv ("TV") and the four variables that define the enquired people "Gender","Age", "Marital.St", "Prof"
 
-```{r, echo = FALSE}
-Generic_Hobbies <- read.table("data/Generic_Hobbies.csv", row.names = 1 , header = TRUE, sep = ",")
+```{r}
+Generic_Hobbies <- read.table("data/Generic_Hobbies.csv", header = TRUE, sep = ",")
 head(Generic_Hobbies, n = 10)
 summary(Generic_Hobbies)
 ```
@@ -38,7 +38,7 @@ summary(Generic_Hobbies)
 - Artistic_Hobbies include attending shows ("Show"), exhibitions ("Exhib"), playing music ("Play.M"), collectionist ("Collect"), and the four variables that define the enquired people "Gender","Age", "Marital.St", "Prof"
 
 ```{r}
-Artistic_Hobbies <- read.table("data/Artistic_Hobbies.csv", row.names = 1 , header = TRUE, sep = ",")
+Artistic_Hobbies <- read.table("data/Artistic_Hobbies.csv", header = TRUE, sep = ",")
 head(Artistic_Hobbies, n = 10)
 summary(Artistic_Hobbies)
 ```
@@ -47,14 +47,14 @@ summary(Artistic_Hobbies)
 - Handcraft_Hobbies include mechanics ("Mech"), gardening ("Garden"), knitting ("Knitt"), cooking ("Cook") and the four variables that define the enquired people "Gender","Age", "Marital.St", "Prof".
 
 ```{r}
-Handcraft_Hobbies <- read.table("data/Handcraft_Hobbies.csv", row.names = 1 , header = TRUE, sep = ",")
+Handcraft_Hobbies <- read.table("data/Handcraft_Hobbies.csv" , header = TRUE, sep = ",")
 head(Handcraft_Hobbies, n = 10)
 summary(Handcraft_Hobbies)
 ```
 - Sport_Hobbies include the general sports answer ("Sport"), walking ("Walk") , traveling ("Travel"), fishing ("Fish"), and the four variables that define the enquired people "Gender","Age", "Marital.St", "Prof"
 
 ```{r}
-Sport_Hobbies <- read.table("data/Sport_Hobbies.csv", row.names = 1 , header = TRUE, sep = ",")
+Sport_Hobbies <- read.table("data/Sport_Hobbies.csv",  header = TRUE, sep = ",")
 head(Sport_Hobbies, n = 10)
 summary(Sport_Hobbies)
 ```
@@ -62,28 +62,26 @@ summary(Sport_Hobbies)
 - Charity_Hobbies include volunttering ("Volunteer"), and the four variables that define the enquired people "Gender","Age", "Marital.St", "Prof"
 
 ```{r}
-Charity_Hobbies <- read.table("data/Charity_hobbies.csv", row.names = 1 , header = TRUE, sep = ",")
+Charity_Hobbies <- read.table("data/Charity_hobbies.csv",  header = TRUE, sep = ",")
 head(Charity_Hobbies, n = 10)
 summary(Charity_Hobbies)
 ```
 
 - Let's attempt to have an overview on how the totality of the data correlats with each other:
 
-```{r, echo = FALSE}
-# Draw the plot 
+```{r}
+# Draw the plot
+library(GGally)
 library(ggplot2)
-plot_data <- ggpairs(Hobbies, mapping = aes(col = Gender, alpha = 0.3), lower = list(combo = wrap("facethist", bins = 20))) + theme_bw() + theme(axis.text.x=element_text(angle = -90, hjust = 0))
-
-plot_data
-
+ggpairs(Hobbies, mapping = aes(col = Gender, alpha = 0.3), lower = list(combo = wrap("facethist", bins = 20))) + theme_bw() + theme(axis.text.x=element_text(angle = -90, hjust = 0))
 ```
 
 - Clearly observing this plot will not highlith much of the data, so lets try the same with the subsets defined previously: 
 
+- **Generic_Hobbies**
+```{r}
+ggpairs(Generic_Hobbies, mapping = aes(col = Gender, alpha = 0.3), lower = list(combo = wrap("facethist", bins = 20))) + theme_bw() + theme(axis.text.x=element_text(angle = -90, hjust = 0))
 
-```{r, echo = FALSE}
-plot_data1 <- ggpairs(Generic_Hobbies, mapping = aes(col = Gender, alpha = 0.3), lower = list(combo = wrap("facethist", bins = 20))) + theme_bw() + theme(axis.text.x=element_text(angle = -90, hjust = 0))
-plot_data1
 ```
 
 - It seems no significant differences can be observe by gender. There might be a sligh higher number of females that answered reading and even a less dramatic increase in the listening music. When it comes to computes the same slight increase in the females that said that computers are not were they spend their hobbies time. No differences can be pointed out when it comes to watching TV or going to the cinema.
@@ -94,9 +92,10 @@ plot_data1
 
 - Professions also don't seem to affect that much the average amount of TV watched. When it comes to time spent in computer, unskilled (both genders) and manual (female) work used it less as a hobbie as the other professions. Reading it's not a popular hobbie amongs female foreman and amongst both genders doing manual work. Same pattern is observed for Listening Music with the adiction of the females enquired that answered other profession. Cinema seems an all professions hobbie with the exception of the females practicing unskilled work.
 
-```{r, echo = FALSE}
-plot_data2 <- ggpairs(Artistic_Hobbies, mapping = aes(col = Gender, alpha = 0.3), lower = list(combo = wrap("facethist", bins = 20))) + theme_bw() + theme(axis.text.x=element_text(angle = -90, hjust = 0))
-plot_data2
+- **Artistic_Hobbies**
+```{r}
+ggpairs(Artistic_Hobbies, mapping = aes(col = Gender, alpha = 0.3), lower = list(combo = wrap("facethist", bins = 20))) + theme_bw() + theme(axis.text.x=element_text(angle = -90, hjust = 0))
+
 ```
 
 - Also in the Artistic category it seems that we cannot identify a clear trend in any of the activities comparing Genders. There might be a sligh higher number of female that answered that have as hoobies attending to shows, exhibitions, collectionist and playing music. 
@@ -108,9 +107,9 @@ Playing music and collectionist seems not to highly affect by the age of the enq
 
 - As for the profession , unskilled and manual labourer profession don't tend to participate in any of the hobbies included in this artistic category. As for the other professions only females answered they frequently atten shows, exhibitions and play music. None of these enquired professions seems to be related with collectionism.
 
-```{r, echo = FALSE}
-plot_data3 <- ggpairs(Handcraft_Hobbies, mapping = aes(col = Gender, alpha = 0.3), lower = list(combo = wrap("facethist", bins = 20))) + theme_bw() + theme(axis.text.x=element_text(angle = -90, hjust = 0))
-plot_data3
+- **Handcraft_Hobbies**
+```{r}
+ggpairs(Handcraft_Hobbies, mapping = aes(col = Gender, alpha = 0.3), lower = list(combo = wrap("facethist", bins = 20))) + theme_bw() + theme(axis.text.x=element_text(angle = -90, hjust = 0))
 
 ```
 
@@ -123,10 +122,9 @@ plot_data3
 - When we observe the professions , this seems to have zero effect in the amount of female and male practicing cooking and gardening. The profession also doesn't affect the amount of females practicing knitting. When it comes to mechanisc it seems that female unskilled and manual workers tend to engage less in this hobbie. 
 
 
-
-```{r, echo = FALSE}
-plot_data4 <- ggpairs(Sport_Hobbies, mapping = aes(col = Gender, alpha = 0.3), lower = list(combo = wrap("facethist", bins = 20))) + theme_bw() + theme(axis.text.x=element_text(angle = -90, hjust = 0))
-plot_data4
+- **Sport_Hobbies**
+```{r}
+ggpairs(Sport_Hobbies, mapping = aes(col = Gender, alpha = 0.3), lower = list(combo = wrap("facethist", bins = 20))) + theme_bw() + theme(axis.text.x=element_text(angle = -90, hjust = 0))
 ```
 
 - When we check how this hobbies cary between gender the only noticeable differents are in the fishing were more females answered they don't fish and in the genreal sports variable it seems also more females answered they dont practice it as a hobbie. 
@@ -137,8 +135,8 @@ plot_data4
 
 - When it comes to profession it seems the ones with unskilled work are the ones travelling less. As for Sports only difference is the amount of females having unskilled work and manual labour that practice sports.   
 
-
-```{r, echo =FALSE}
+- **Charity_Hobbies**
+```{r}
 ggpairs(Charity_Hobbies, mapping = aes(col = Gender, alpha = 0.3), lower = list(combo = wrap("facethist", bins = 20))) + theme_bw() + theme(axis.text.x=element_text(angle = -90, hjust = 0))
 ```
  - According to this analysis it seems there is no relationship between the amount of volunteering and gender, age, marital status. As for the profession it seems that more females in the management positions tend to participate more in charity togethet with the males in the "other" profession category. 
@@ -148,7 +146,7 @@ ggpairs(Charity_Hobbies, mapping = aes(col = Gender, alpha = 0.3), lower = list(
 Multiple correspondence analysis (MCA) is a statistical analysis method that expands the correspondence analysis (CA) to multiple variable. The method is used to highlight the structure / distribution of nominal/categorical data in an Euclidean space (where the method projects the data points). With MCA you can better visualize the principal determinants of the data (Note that Principal component analysis or PCA is an analysis method for categorical data that performs similarly to MCA).
 
 
-```{r, echo = FALSE}
+{r}
 library(FactoMineR)
 res.mca <- MCA(Hobbies, quali.sup=19:22, quanti.sup=23, method="Burt")
 
@@ -163,37 +161,27 @@ plot(res.mca, invisible=c("ind","var"),hab="quali")
 
 dimdesc(res.mca)
 plotellipses(res.mca,keepvar=1:4)
-```
-
-
-```{r, echo = FALSE}
-# calculate the multiple correspondence analysis
-mca <- MCA(Hobbies, graph = FALSE)
 
 # summary of the model
 summary(mca)
-```
 
 
 
 
-
-
-```{r, echo = FALSE}
 # visualize MCA
 plot(mca, invisible=c("ind"), habillage = "quali")
-```
 
- - Now upon removal of the individuals in the plot you can better verify how the variables better relate with one or the other dimension. 
+# Biplot of individuals and variable categories
+fviz_mca_biplot(res.mca, repel = TRUE,
+                ggtheme = theme_minimal())
+
+
+
+ - Removal of the individuals in the plot you can better verify how the variables better relate with one or the other dimension. 
  
-  - The typical MCA bipolot shows the original classes of the discrete variables on the same "map". This allows us to check the data distributions of the different variables, revealing the connections (correspondences) between different things that would be quite impossible to see from the corresponding cross table. The plot including all the data seems extremelly busy and difficult to verify the correlations between the variables 
+  - The typical MCA bipolot would show the original classes of the discrete variables on the same "map". This allows us to check the data distributions of the different variables, revealing the connections (correspondences) between different things that would be quite impossible to see from the corresponding cross table.  
   
   
-
-
-```{r, echo = FALSE}
-res.mca <- MCA(hobbies,quali.sup = 19:22, quanti.sup = 23)
-```
 
 
 
