@@ -80,12 +80,27 @@ plot_data1 <- ggpairs(Generic_Hobbies, mapping = aes(col = Gender, alpha = 0.3),
 plot_data1
 ```
 
+- It seems no significant differences can be observe by gender. There might be a sligh higher number of females that answered reading and even a less dramatic increase in the listening music. When it comes to computes the same slight increase in the females that said that computers are not were they spend their hobbies time. No differences can be pointed out when it comes to watching TV or going to the cinema.
+
+- When it comes to the age effect in this variable, you can verufy that females from 25 - 55 tens to read less as a hobbie. Surprisingly when it comes to listening music in the ages from 15 - 45 seems to be a less popular hobbie in both genders. When it comes to going to the cinema, from 55 tp 100 it seems its not a very popular hobbie in any of the genders (exception for the females from 55-65). When it comes to watching TV it seems that after 45years old both gender average of time dedicated to this increases. 
+
+- Marital Status also doesn't seem to affect the amount of watched TV by the enquired. But Widowers seem to spend less time in the computer or going to the movies (both genders). When it comes to reading, it seems only Remarried and Divorced females don't use it as a hobbie. Single females and males seem not to listen music as a hobbie, same as remarried and divorced females. 
+
+- Professions also don't seem to affect that much the average amount of TV watched. When it comes to time spent in computer, unskilled (both genders) and manual (female) work used it less as a hobbie as the other professions. Reading it's not a popular hobbie amongs female foreman and amongst both genders doing manual work. Same pattern is observed for Listening Music with the adiction of the females enquired that answered other profession. Cinema seems an all professions hobbie with the exception of the females practicing unskilled work.
+
 ```{r, echo = FALSE}
 plot_data2 <- ggpairs(Artistic_Hobbies, mapping = aes(col = Gender, alpha = 0.3), lower = list(combo = wrap("facethist", bins = 20))) + theme_bw() + theme(axis.text.x=element_text(angle = -90, hjust = 0))
 plot_data2
 ```
 
-- Also in the Artistic category it seems that we cannot identify a clear trend in any of the activities comparing Genders. There might be a sligh higher number of female that answered that have as hoobies attending to shows, exhibitions, collectionist and playing music. As for the age it seems that after 45 males have a dramatic drop in attending show , while that happens for females after 55. Attending exhibitons suffers a dramatic drop after 65 for both genders. 
+- Also in the Artistic category it seems that we cannot identify a clear trend in any of the activities comparing Genders. There might be a sligh higher number of female that answered that have as hoobies attending to shows, exhibitions, collectionist and playing music. 
+
+- As for the age it seems that after 45 males have a dramatic drop in attending show , while that happens for females after 55. Attending exhibitons suffered a dramatic drop after 65 for both genders. 
+Playing music and collectionist seems not to highly affect by the age of the enquired. Noticeable only that females in the 25 - 35 are the ones answering more that they practice playing music as hobbie. 
+
+- If we look at the marital status it seems widower (both genders) are the ones that never attend to shows and only males answered they attend exhibitions. Only female single seem to answer they play music as a hobbie. 
+
+- As for the profession , unskilled and manual labourer profession don't tend to participate in any of the hobbies included in this artistic category. As for the other professions only females answered they frequently atten shows, exhibitions and play music. None of these enquired professions seems to be related with collectionism.
 
 ```{r, echo = FALSE}
 plot_data3 <- ggpairs(Handcraft_Hobbies, mapping = aes(col = Gender, alpha = 0.3), lower = list(combo = wrap("facethist", bins = 20))) + theme_bw() + theme(axis.text.x=element_text(angle = -90, hjust = 0))
@@ -93,12 +108,28 @@ plot_data3
 
 ```
 
+- When it comes to the handcraft hobbies by gender, we can already answer to some of the sterotypes hypothesis placed. More females answered that mechanics is not their hobbies while many of the enquired man answered yes to this hobbie. When it comes to gardening, no major differences betwen genders is obverses. On the other hand, cooking as a hobbies it seems to be a hobbie of many females enquired but not from the enquired males. When it comes to knitting it seems its an almost exclusive female hobbie. 
+
+- When we look at differences by age, that gardening is in general an all ages hobbie, with only females in the younger and older category not participating on it. Cooking is for females an all ages hobbie, but males from 65-100 don't cook as hobbie. Knitting is not a males hobbie in any age group and younger and older age groups females don't seem to have it as a hobbie. 
+
+- When it comes to Marital Status, it seems it doesn't affect at all the gardening variable and when it comes to mech female widowers seem no to practice it, in the cooking variable its the males wodowers that seem no to practice it. Knitting is proved to be a female hobbie, but it seems single don't practice it as much as other marital status groups. 
+
+- When we observe the professions , this seems to have zero effect in the amount of female and male practicing cooking and gardening. The profession also doesn't affect the amount of females practicing knitting. When it comes to mechanisc it seems that female unskilled and manual workers tend to engage less in this hobbie. 
+
+
+
 ```{r, echo = FALSE}
 plot_data4 <- ggpairs(Sport_Hobbies, mapping = aes(col = Gender, alpha = 0.3), lower = list(combo = wrap("facethist", bins = 20))) + theme_bw() + theme(axis.text.x=element_text(angle = -90, hjust = 0))
 plot_data4
 ```
 
-- 
+- When we check how this hobbies cary between gender the only noticeable differents are in the fishing were more females answered they don't fish and in the genreal sports variable it seems also more females answered they dont practice it as a hobbie. 
+
+- Looking at the age differences, it seems that females after 55 tend not to practice sports while male at that same age still answered it was their hobbie. As for walking it seems only females at 85 tend not to do it as a hobbie, otherwise all age groups tend to practice this one. For travelling hobbie both gender in the higher age group (85 - 100) answered they don't do it as a hobbite. 
+
+- When it comes to marital status it seems only widowers answered they dont practive much sports. No differnces to be appointed regarding walking or travelling. 
+
+- When it comes to profession it seems the ones with unskilled work are the ones travelling less. As for Sports only difference is the amount of females having unskilled work and manual labour that practice sports.   
 
 
 ```{r, echo =FALSE}
