@@ -20,7 +20,7 @@ output:
  
 # - Data Analysis 
 
-## - Load data and explore data summary and dimensions 
+## - Load data and explore data summary, dimensions and correlations
 ```{r, echo = FALSE}
 Hobbies <- read.table("hobbies_.csv", header = TRUE, Sep = ";")
 ```
@@ -38,10 +38,11 @@ gather(tea_time) %>% ggplot(aes(value)) + facet_wrap("key", scales = "free") + g
 
 
 
-## - MCA
+## - Multiple correspondence analysis (MCA)
+
+Multiple correspondence analysis (MCA) is a statistical analysis method that expands the correspondence analysis (CA) to multiple variable. The method is used to highlight the structure / distribution of nominal/categorical data in an Euclidean space (where the method projects the data points). With MCA you can better visualize the principal determinants of the data (Note that Principal component analysis or PCA is an analysis method for categorical data that performs similarly to MCA).
 
 
-Brief description of the method(s) you are using in your own words (max 3 points)
 ```{r}
 res.mca <- MCA(hobbies, quali.sup=19:22, quanti.sup=23, method="Burt")
 

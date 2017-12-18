@@ -20,29 +20,35 @@ output:
 
 ## - Description of the original data set
 
- > The chosen data is originated from an enquiry about hobbies currently available in the FactoMiner library. The questionaire includes 18 questions regarding the type of hobbies undertaken by the enquired people. As suplemmentary questions: the amount of activities undertaken and four questions regarding the enquired people age, gender, profession and marital status were included. The data was collect from a total of 8403 individuals.   
+ > The chosen data is originated from an enquiry about hobbies currently available in the FactoMiner library. The questionaire includes 18 questions regarding the type of hobbies undertaken by the enquired people. As suplemmentary questions: the amount of activities undertaken and four questions regarding the enquired people age, gender, profession and marital status were included. The data was collect from a total of 8403 individuals.
 
-- Overview of the variables used to label the individuals: 
+- Overview of the suplemmentary variables used to label the individuals: 
   - Gender / sex (male, female), 
   - Age (15-25, 26-35, 36-45, 46-55, 56-65, 66-75, 76-85, 86-100), 
   - Marital status (single, married, widowed,divorced, remarried), 
   - Profession (manual labourer, unskilled worker, technician, foreman, senior management, employee, other). 
 
-## - [Data wrangling script](https://github.com/ElsaMarques/IODS-final/blob/master/crerate%20IODS-final.R) 
+## - [Data wrangling script file](https://github.com/ElsaMarques/IODS-final/blob/master/crerate%20IODS-final.R) 
 
 - In order to perform the analysis I excluded from the data set all rows that included NA values; 
 
-- The data needed to be scaled / standardized in order to perform MCA analysis, since the original data was not presenting the same variance range in all the variables; 
+- All variables need to be factors in order to perform the MCA analysis 
+    - "Number of activities" in hobbies was presented as intervals (quantitave variable); 
 
-- Subsets of data were created in order to further validate the research hypothesis:
-  - Hobbies divided by Generic, Sport, Artistic , Handcraft and Charity related categories 
+- For Linear regression analysis
+  - Subsets of data were created in order to further validate the research hypothesis:
+    - Hobbies divided by Generic, Sport, Artistic , Handcraft and Charity related categories 
+
+- In order to perform LDA analysis:
+    - The data needed to be scaled / standardized since the original data was not presenting the same variance range in all the variables; 
+    - Test and train sets were created to validade the model; 
   
-  - Data was grouped by age ; gender ; profession and marital status (the extra categorical variables labeling the individuals)
+- Data was grouped by age ; gender ; profession and marital status (the extra categorical variables labeling the individuals)
   
 
 # - Research topic and hypothesis 
 
- > For this exercise I am using the hobbies dataset that can be found in the FactoMineR libray. I will try to evaluate how different are the hobbies undertaken by gender, age, marital status and by the enquired professions. Assuming that more demanding professions will leave less space for hobbies or for more less time consuming hobbies. Also there is some hobbies that are stereotypically associated with one or the other gender of the enquired people.
+ > For this exercise I am using the hobbies dataset that can be found in the FactoMineR libray. I will try to evaluate how different are the hobbies undertaken by gender, age, marital status and by the enquired professions. Will more demanding professions leave less space for hobbies or people will chose less time consuming hobbies? Is there some hobbies that are stereotypically associated with one or the other gender of the enquired people? Is age related with the amount and type of hobbies that inquired undertake?  
  
  
 To explore if my hypothesis holds true, I explored the data trying to understand the following points: 
@@ -51,14 +57,14 @@ To explore if my hypothesis holds true, I explored the data trying to understand
   
     - Linear regressions amongst the following variables:
   
+      - Number of activities Vs Age
+      - Number of activities Vs Gender
+      - Number of activities Vs Profession 
+      - Number of activities Vs Marital Status
+      
       - Hobbies categories Vs Age 
       - Hobbies categories Vs Gender 
       - Hobbies categories Vs Profession
       - Hobbies categories Vs Marital Status
   
-      - Number of activities Vs Age
-      - Number of activities Vs Gender
-      - Number of activities Vs Profession 
-      - Number of activities Vs Marital Status
  
-Where is the data from, what does it relate to, what do the variables represent, what has been done to the data before analysis? (max 2 points)

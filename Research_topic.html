@@ -235,7 +235,7 @@ div.tocify {
 <p>The chosen data is originated from an enquiry about hobbies currently available in the FactoMiner library. The questionaire includes 18 questions regarding the type of hobbies undertaken by the enquired people. As suplemmentary questions: the amount of activities undertaken and four questions regarding the enquired people age, gender, profession and marital status were included. The data was collect from a total of 8403 individuals.</p>
 </blockquote>
 <ul>
-<li>Overview of the variables used to label the individuals:</li>
+<li>Overview of the suplemmentary variables used to label the individuals:</li>
 <li>Gender / sex (male, female),</li>
 <li>Age (15-25, 26-35, 36-45, 46-55, 56-65, 66-75, 76-85, 86-100),</li>
 <li>Marital status (single, married, widowed,divorced, remarried),</li>
@@ -246,9 +246,20 @@ div.tocify {
 <h2><span class="header-section-number">1.2</span> - <a href="https://github.com/ElsaMarques/IODS-final/blob/master/crerate%20IODS-final.R">Data wrangling script</a></h2>
 <ul>
 <li><p>In order to perform the analysis I excluded from the data set all rows that included NA values;</p></li>
-<li><p>The data needed to be scaled / standardized in order to perform MCA analysis, since the original data was not presenting the same variance range in all the variables;</p></li>
-<li>Subsets of data were created in order to further validate the research hypothesis:</li>
-<li><p>Hobbies divided by Generic, Sport, Artistic , Handcraft and Charity related categories</p></li>
+<li>All variables need to be factors in order to perform the MCA analysis
+<ul>
+<li>“Number of activities” in hobbies was presented as intervals (quantitave variable);</li>
+</ul></li>
+<li>For Linear regression analysis</li>
+<li>Subsets of data were created in order to further validate the research hypothesis:
+<ul>
+<li>Hobbies divided by Generic, Sport, Artistic , Handcraft and Charity related categories</li>
+</ul></li>
+<li>In order to perform LDA analysis:
+<ul>
+<li>The data needed to be scaled / standardized since the original data was not presenting the same variance range in all the variables;</li>
+<li>Test and train sets were created to validade the model;</li>
+</ul></li>
 <li><p>Data was grouped by age ; gender ; profession and marital status (the extra categorical variables labeling the individuals)</p></li>
 </ul>
 </div>
@@ -256,7 +267,7 @@ div.tocify {
 <div id="research-topic-and-hypothesis" class="section level1">
 <h1><span class="header-section-number">2</span> - Research topic and hypothesis</h1>
 <blockquote>
-<p>For this exercise I am using the hobbies dataset that can be found in the FactoMineR libray. I will try to evaluate how different are the hobbies undertaken by gender, age, marital status and by the enquired professions. Assuming that more demanding professions will leave less space for hobbies or for more less time consuming hobbies. Also there is some hobbies that are stereotypically associated with one or the other gender of the enquired people.</p>
+<p>For this exercise I am using the hobbies dataset that can be found in the FactoMineR libray. I will try to evaluate how different are the hobbies undertaken by gender, age, marital status and by the enquired professions. Assuming that more demanding professions will leave less space for hobbies or option for less time consuming hobbies. Also there is some hobbies that are stereotypically associated with one or the other gender of the enquired people.</p>
 </blockquote>
 <p>To explore if my hypothesis holds true, I explored the data trying to understand the following points:</p>
 <ul>

@@ -20,40 +20,58 @@ output:
  
 ## - Linear regresssion
 
-Brief description of the method(s) you are using in your own words (max 3 points)
+Linear regression allows you to test the relationship between a target variable and one (simple linear regression) or more explanatory variables (multiple linear regression). With this analysis you can read how the variable relate or not to which others, either positively or negatively related.
+
+
+```{r}
+my_model <- lm(formula = nb.activitees ~ Age + Profession + Sex , data = hobbies)
+summary(my_model)
+```
+
+
+
+```{r, echo=FALSE}
+library(ggplot2)
+p1 <- ggplot(data = hobbies, aes(y = nb.activitees, x = Age , fill = Sex)) + geom_boxplot() + geom_smooth(method = "lm")
+p1
+```
+
+- Interestingly the pattern in the amount of hobbies that females and males undertake varies differently with age. You can see how the average in the number of activitees decreases in the females around 35-45years old, maybe at this point female will focus in one of the hobbies they really like instead of keeping several of the, or mayve related to the later observed maternity ages (?). After that age group you can check a drop in the the average of the number of activitees taken, with males average and maximum amount of activities droping one age group latter (at 55-65). 
+
+```{r}
+library(ggplot2)
+p2 <- ggplot(data = hobbies, aes(y = nb.activitees, x = Profession , fill = Sex)) + geom_boxplot() + geom_smooth(method = "lm")
+p2
+```
+
+- When it comes to Profession, the number of activitees varies less regarding the gender of the inquires. Only in the management profession one could verify that females are still able to maintain an higher amount of hobbies, comparing to the males with the same profession. This is also the profession (from the ones that were accessed) were we can verify the highest average of activitees undertaken by the enquired. The average amount of hobbies seems more related to your salary or to the amount of physical work you undertake in your job, which means you either have less money to undertaken in several hobbies or you have less energy to do so. As you can verify that unskilled and manual labourer present the lower average number of hobbies. 
+
+
+
+
+```{r}
+library(ggplot2)
+p3 <- ggplot(data = hobbies_, aes(y = N.Act, x = Marital.St, fill = Gender)) + geom_boxplot()
+p3
+```
+
+- The diferences in the amount of hobbies between gender according to their Marital Status is only visible when takin gin account the average values. 
+
+
+### Graphical model validation   
 
 R makes it easy to graphically explore the validity of your model assumptions. If you give a linear model object as the first argument to the plot() function, the function automatically assumes you want diagnostic plots and will produce them. You can check the help page of plotting an lm object by typing ?plot.lm or help(plot.lm) to the R console.
 
-```{r, echo=FALSE}
-
-```
-
-ggpairs(data = learning2014, mapping = aes(col = gender, alpha = 0.3), lower = list(combo = wrap("facethist", bins = 20)))
-
-
-# plot with the 
-p1 <- ggplot(data = learning2014, aes(x = Attitude, y = Points, col = gender))
-
-# define the visualization type (points)
-p2 <- p1 + geom_point()
-
-# add a regression line
-p3 <- p2 + geom_smooth(method = "lm")
-
-
-#Linear model with three explanatory variables 
-my_model <- lm(formula = Points ~ Attitude + stra + surf, data = learning2014)
-
-#Summary of the linear model 
-summary(my_model)
-
-
+```{r}
 
 #Graphical model validation 
 library(ggfortify)
 
 autoplot(my_model, which= c(1, 2, 5)) +
      theme_bw()
+```
+
+
      
      
 
