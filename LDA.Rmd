@@ -22,117 +22,51 @@ Linear discriminant analysis (LDA) is one of the methods that can be used for di
       - Test and train sets created to validade the model; 
     
     
-- Starting by diving our data set into the train and test set
+#### For this I selected the subgroup Artistic_Hobbies and Generic_Hobbies
 
 ```{r, echo = FALSE}
-# number of rows in the Boston dataset 
-n <- nrow(Hobbies)
+# number of rows in the Artistic_Hobbies dataset 
+Artistic_Hobbies <- read.table("data/Artistic_Hobbies.csv", header = TRUE, sep = ",")
+n <- nrow(Artistic_Hobbies)
 n
 
 # choose randomly 80% of the rows
 ind <- sample(n,  size = n * 0.8)
 
 # create train set
-train <- Hobbies[ind,]
+train <- Artistic_Hobbies[ind,]
 train
 
 # create test set 
-test <- Hobbies[-ind,]
+test <- Artistic_Hobbies[-ind,]
 test
 
 ```
 
 - Standardization of the data is needed in order to perform LDA analysis
 
-```{r}
 
-```
-
-
-```{r, echo = FALSE}
-library(dplyr)
-library(MASS)
-# linear discriminant analysis
-lda.fit <- lda(N.Act ~ . , data = train)
-
-# print the lda.fit object
-lda.fit
-
-# function for the lda biplot arrows
-lda.arrows <- function(x, myscale = 2, arrow_heads = 0.1, color = "red", tex = 0.75, choices = c(1,2)){
-  heads <- coef(x)
-  arrows(x0 = 0, y0 = 0, 
-         x1 = myscale * heads[,choices[1]], 
-         y1 = myscale * heads[,choices[2]], col=color, length = arrow_heads)
-  text(myscale * heads[,choices], labels = row.names(heads), 
-       cex = tex, col=color, pos=3)
-}
-
-```
-
-
-
-```{r}
-# target classes as numeric
-classes <- train$N.Act
-
-
-# plot the lda results
-plot(lda.fit, dimen = 2, col = classes, pch = classes)
-lda.arrows(lda.fit, myscale = 1)
-```
-
-```{r}
-# predict classes with test data
-lda.pred <- predict(lda.fit, newdata = test)
-```
-
-
-```{r}
-
-```
-
-
-```{r, echo = FALSE}
 # Center and standardize variables in the dataset
-hobbies_scaled <- scale(hobbies_)
+Artistic_scaled <- scale(Artistic_Hobbies)
 
 # Summary of the scaled variables
-summary(hobbies_scaled)
+summary(Artistic_Hobbies_scaled)
 
 # Check what is the class of the new scaled object
-class(hobbies_scaled)
+class(Hobbies_scaled)
 
 # change the object to data frame
-hobbies_scaled <- as.data.frame(hobbies_scaled)
+Hobbies_scaled <- as.data.frame(Hobbies_scaled)
                                
-# summary of the scaled crime rate
-summary(hobbies_scaled$Prof)
-
-# create a quantile vector of crim and print it
-bins <- quantile(hobbies_scaled$Prof)
-bins
-
-# create a categorical variable 'crime'
-crime <- cut(boston_scaled$crim, breaks = bins, include.lowest = TRUE, label = c("low", "med_low", "med_high", "high"))
-
-# look at the table of the new factor crime
-table(crime)
-
-# remove original crim from the dataset
-boston_scaled <- dplyr::select(boston_scaled, -crim)
-
-# add the new categorical value to scaled data
-boston_scaled <- data.frame(boston_scaled, crime)
-
-# check how boston_scaled looks like now
-boston_scaled %>% group_by(crime)
 
 
 
+```{r, echo = FALSE}
 library(dplyr)
+library(GGally)
+library(MASS)
 # linear discriminant analysis
-lda.fit <- lda(crime ~ . , data = train)
+lda.fit <- lda(Prof ~ . , data = train)
 
 # print the lda.fit object
 lda.fit
@@ -147,45 +81,23 @@ lda.arrows <- function(x, myscale = 2, arrow_heads = 0.1, color = "red", tex = 0
        cex = tex, col=color, pos=3)
 }
 
-# target classes as numeric
-classes <- as.numeric(train$crime)
+```
 
+
+
+```{r}
 # plot the lda results
-plot(lda.fit, dimen = 2, col = classes, pch = classes)
-lda.arrows(lda.fit, myscale = 1)
+plot(lda.fit, dimen = 2)
+lda.arrows(lda.fit, myscale = 2)
+```
 
-library(dplyr)
-# save the correct classes from test data
-correct_classes <- test$crime
-correct_classes
-
-# remove the crime variable from test data
-test <- dplyr::select(test, -crime)
-
+```{r}
 # predict classes with test data
 lda.pred <- predict(lda.fit, newdata = test)
+```
 
-# cross tabulate the results
-table(correct = correct_classes, predicted = lda.pred$class)
 
-# load MASS and Boston
-library(MASS)
-data("Boston")
 
-# standardize Boston dataset
-boston_scaled <- scale(Boston)
-
-# euclidean distance matrix
-dist_eu <- dist(boston_scaled)
-
-# look at the summary of the distances
-summary(dist_eu)
-
-# manhattan distance matrix
-dist_man <- dist(boston_scaled, method ="manhattan")
-
-# look at the summary of the distances
-summary(dist_man)
 
 # MASS, ggplot2 and Boston dataset are available
 set.seed(123)
@@ -194,7 +106,7 @@ set.seed(123)
 k_max <- 10
 
 # calculate the total within sum of squares
-twcss <- sapply(1:k_max, function(k){kmeans(boston_scaled, k)$tot.withinss})
+twcss <- sapply(1:k_max, function(k){kmeans(, k)$tot.withinss})
 
 # visualize the results
 qplot(x = 1:k_max, y = twcss, geom = 'line')
@@ -235,7 +147,6 @@ plot_ly(x = matrix_product$LD1, y = matrix_product$LD2, z = matrix_product$LD3, 
 
 plot_ly(x = matrix_product$LD1, y = matrix_product$LD2, z = matrix_product$LD3, type= 'scatter3d', mode='markers', col = train$km)
                                
-```
 
 
 

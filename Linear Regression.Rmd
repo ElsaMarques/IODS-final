@@ -21,6 +21,7 @@ Linear regression allows you to test the relationship between a target variable 
 
 
 ```{r, echo = FALSE}
+Hobbies <- read.table("data/hobbies_.csv", header = TRUE, sep = ",")
 hobbies_model <- lm(formula = N.Act ~ Age + Prof + Gender + Marital.St , data = Hobbies)
 summary(hobbies_model)
 ```
