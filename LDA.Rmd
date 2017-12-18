@@ -17,6 +17,11 @@ output:
 
 Linear discriminant analysis (LDA) is one of the methods that can be used for dimensionality reduction and cluster data. This method takes in account the overall data features in order to characterize a linear combination of features that allow the identification of sub-clusters in the data.
 
+  - In order to perform LDA analysis:
+      - The data needs to be scaled / standardized since the original data was not presenting the same variance range in all the variables; 
+      - Test and train sets created to validade the model; 
+    
+    
 - Starting by diving our data set into the train and test set
 ```{r, echo = FALSE}
 # number of rows in the Boston dataset 
@@ -64,11 +69,21 @@ lda.arrows <- function(x, myscale = 2, arrow_heads = 0.1, color = "red", tex = 0
 # target classes as numeric
 classes <- train$N.Act
 
+
 # plot the lda results
 plot(lda.fit, dimen = 2, col = classes, pch = classes)
 lda.arrows(lda.fit, myscale = 1)
 ```
 
+```{r}
+# predict classes with test data
+lda.pred <- predict(lda.fit, newdata = test)
+```
+
+
+```{r}
+
+```
 
 
 ```{r, echo = FALSE}

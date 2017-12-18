@@ -13,37 +13,106 @@ output:
     toc_float: yes 
 ---
 
- > Visually clear and interesting explorations of the variables of interest in the data, from the point of view of your research question. Include interpretations of the distributions and relationships of the variables. Use captions to draw the reader’s focus on the interesting parts of your tables and graphics. (max 8 points)
- 
- > Presentation of the results of your analysis including visualizations and summaries and a thorough interpretation of the results including a validation analysis of the method. (max 16 points)
- 
- 
 # - Data Analysis 
 
 ## - Load data and explore data summary, dimensions and correlations
+
+### - For the overall data 
 ```{r, echo = FALSE}
-Hobbies <- read.table("hobbies_.csv", header = TRUE, Sep = ";")
+Hobbies <- read.table("data/hobbies_.csv", row.names = 1 , header = TRUE, sep = ",")
+head(Hobbies, n = 10)
+summary(Hobbies)
 ```
 
-{r cols.print=3, rows.print=3}
-mtcars
+### - For the sub grouped data according to the type of hobbie  
 
-
-
-
+- Generic_Hobbies include reading ("Read"), listening to music ("L.Music"), going to the cinema ("Cinema"), using the computer ("Comp"), watching Tv ("TV") and the four variables that define the enquired people "Gender","Age", "Marital.St", "Prof"
 ```{r, echo = FALSE}
-# visualize the dataset
-gather(tea_time) %>% ggplot(aes(value)) + facet_wrap("key", scales = "free") + geom_bar() + theme(axis.text.x = element_text(angle = 45, hjust = 1, size = 6))
+Generic_Hobbies <- read.table("data/Generic_Hobbies.csv", row.names = 1 , header = TRUE, sep = ",")
+head(Generic_Hobbies, n = 10)
+summary(Generic_Hobbies)
+```
+
+- Artistic_Hobbies include attending shows ("Show"), exhibitions ("Exhib"), playing music ("Play.M"), collectionist ("Collect"), and the four variables that define the enquired people "Gender","Age", "Marital.St", "Prof"
+```{r}
+Artistic_Hobbies <- read.table("data/Artistic_Hobbies.csv", row.names = 1 , header = TRUE, sep = ",")
+head(Artistic_Hobbies, n = 10)
+summary(Artistic_Hobbies)
 ```
 
 
+- Handcraft_Hobbies include mechanics ("Mech"), gardening ("Garden"), knitting ("Knitt"), cooking ("Cook") and the four variables that define the enquired people "Gender","Age", "Marital.St", "Prof".
+```{r}
+Handcraft_Hobbies <- read.table("data/Handcraft_Hobbies.csv", row.names = 1 , header = TRUE, sep = ",")
+head(Handcraft_Hobbies, n = 10)
+summary(Handcraft_Hobbies)
+```
+- Sport_Hobbies include the general sports answer ("Sport"), walking ("Walk") , traveling ("Travel"), fishing ("Fish"), and the four variables that define the enquired people "Gender","Age", "Marital.St", "Prof"
+
+```{r}
+Sport_Hobbies <- read.table("data/Sport_Hobbies.csv", row.names = 1 , header = TRUE, sep = ",")
+head(Sport_Hobbies, n = 10)
+summary(Sport_Hobbies)
+```
+
+- Charity_Hobbies include volunttering ("Volunteer"), and the four variables that define the enquired people "Gender","Age", "Marital.St", "Prof"
+
+```{r}
+Charity_Hobbies <- read.table("data/Charity_hobbies.csv", row.names = 1 , header = TRUE, sep = ",")
+head(Charity_Hobbies, n = 10)
+summary(Charity_Hobbies)
+```
+
+- Let's attempt to have an overview on how the totality of the data correlats with each other:
+
+```{r, echo = FALSE}
+# Draw the plot 
+plot_data <- ggpairs(Hobbies, mapping = aes(col = Gender, alpha = 0.3), lower = list(combo = wrap("facethist", bins = 20))) + theme_bw() + theme(axis.text.x=element_text(angle = -90, hjust = 0))
+plot_data
+
+```
+
+- Clearly observing this plot will not highlith much of the data, so lets try the same with the subsets defined previously: 
+
+
+```{r, echo = FALSE}
+plot_data1 <- ggpairs(Generic_Hobbies, mapping = aes(col = Gender, alpha = 0.3), lower = list(combo = wrap("facethist", bins = 20))) + theme_bw() + theme(axis.text.x=element_text(angle = -90, hjust = 0))
+plot_data1
+```
+
+```{r, echo = FALSE}
+plot_data2 <- ggpairs(Artistic_Hobbies, mapping = aes(col = Gender, alpha = 0.3), lower = list(combo = wrap("facethist", bins = 20))) + theme_bw() + theme(axis.text.x=element_text(angle = -90, hjust = 0))
+plot_data2
+```
+
+- Also in the Artistic category it seems that we cannot identify a clear trend in any of the activities comparing Genders. There might be a sligh higher number of female that answered that have as hoobies attending to shows, exhibitions, collectionist and playing music. As for the age it seems that after 45 males have a dramatic drop in attending show , while that happens for females after 55. Attending exhibitons suffers a dramatic drop after 65 for both genders. 
+
+```{r, echo = FALSE}
+plot_data3 <- ggpairs(Handcraft_Hobbies, mapping = aes(col = Gender, alpha = 0.3), lower = list(combo = wrap("facethist", bins = 20))) + theme_bw() + theme(axis.text.x=element_text(angle = -90, hjust = 0))
+plot_data3
+
+```
+
+```{r, echo = FALSE}
+plot_data4 <- ggpairs(Sport_Hobbies, mapping = aes(col = Gender, alpha = 0.3), lower = list(combo = wrap("facethist", bins = 20))) + theme_bw() + theme(axis.text.x=element_text(angle = -90, hjust = 0))
+plot_data4
+```
+
+- 
+
+
+```{r, echo =FALSE}
+plot_data5 <- ggpairs(Charity_Hobbies, mapping = aes(col = Gender, alpha = 0.3), lower = list(combo = wrap("facethist", bins = 20))) + theme_bw() + theme(axis.text.x=element_text(angle = -90, hjust = 0))
+plot_data5
+```
+ - According to this analysis it seems there is no relationship between the amount of volunteering and gender, age, marital status. As for the profession it seems that more females in the management positions tend to participate more in charity togethet with the males in the "other" profession category. 
 
 ## - Multiple correspondence analysis (MCA)
 
 Multiple correspondence analysis (MCA) is a statistical analysis method that expands the correspondence analysis (CA) to multiple variable. The method is used to highlight the structure / distribution of nominal/categorical data in an Euclidean space (where the method projects the data points). With MCA you can better visualize the principal determinants of the data (Note that Principal component analysis or PCA is an analysis method for categorical data that performs similarly to MCA).
 
 
-```{r}
+```{r, echo = FALSE}
 res.mca <- MCA(hobbies, quali.sup=19:22, quanti.sup=23, method="Burt")
 
 plot(res.mca,invisible=c("ind","quali.sup"),hab="quali") ### active var. only
