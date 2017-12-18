@@ -13,9 +13,13 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-Final assignment for Open Data Science course!
+Final assignment for Open Data Science course !
 
-> **After five weeks of intensive work, several troubleshooting sessions it's now time to test how well we can use the knowledge acquired.** 
+> **After five weeks of intensive work, several troubleshooting sessions it's now time to test how well we can use the knowledge acquired to extract information from datasets.** 
+
+#### For this exercise I chose the online available Hobbies database, focusing mainly in the number of activities and type of hobbies the enquired mentioned they undertake. The enquired were characterized by the question Age, Gender, Marital Status and Profession. 
+
+
 
 **You can also check the finalized course diary by Elsa Marques:**
 

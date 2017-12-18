@@ -236,16 +236,16 @@ div.tocify {
 </blockquote>
 <ul>
 <li>Overview of the suplemmentary variables used to label the individuals:</li>
-<li>Gender / sex (male, female),</li>
-<li>Age (15-25, 26-35, 36-45, 46-55, 56-65, 66-75, 76-85, 86-100),</li>
-<li>Marital status (single, married, widowed,divorced, remarried),</li>
+<li>Gender / Sex (male, female);</li>
+<li>Age groups (15-25, 26-35, 36-45, 46-55, 56-65, 66-75, 76-85, 86-100);</li>
+<li>Marital status (single, married, widowed,divorced, remarried);</li>
 <li>Profession (manual labourer, unskilled worker, technician, foreman, senior management, employee, other).</li>
 </ul>
 </div>
-<div id="data-wrangling-script" class="section level2">
-<h2><span class="header-section-number">1.2</span> - <a href="https://github.com/ElsaMarques/IODS-final/blob/master/crerate%20IODS-final.R">Data wrangling script</a></h2>
+<div id="data-wrangling-script-file" class="section level2">
+<h2><span class="header-section-number">1.2</span> - <a href="https://github.com/ElsaMarques/IODS-final/blob/master/crerate%20IODS-final.R">Data wrangling script file</a></h2>
 <ul>
-<li><p>In order to perform the analysis I excluded from the data set all rows that included NA values;</p></li>
+<li><p>In order to perform a complete analysis I excluded from the data set all rows that included NA values;</p></li>
 <li>All variables need to be factors in order to perform the MCA analysis
 <ul>
 <li>“Number of activities” in hobbies was presented as intervals (quantitave variable);</li>
@@ -253,38 +253,33 @@ div.tocify {
 <li>For Linear regression analysis</li>
 <li>Subsets of data were created in order to further validate the research hypothesis:
 <ul>
-<li>Hobbies divided by Generic, Sport, Artistic , Handcraft and Charity related categories</li>
+<li>Hobbies divided by Generic, Sport, Artistic, Handcraft and Charity related categories</li>
 </ul></li>
-<li>In order to perform LDA analysis:
-<ul>
-<li>The data needed to be scaled / standardized since the original data was not presenting the same variance range in all the variables;</li>
-<li>Test and train sets were created to validade the model;</li>
-</ul></li>
-<li><p>Data was grouped by age ; gender ; profession and marital status (the extra categorical variables labeling the individuals)</p></li>
 </ul>
 </div>
 </div>
 <div id="research-topic-and-hypothesis" class="section level1">
 <h1><span class="header-section-number">2</span> - Research topic and hypothesis</h1>
 <blockquote>
-<p>For this exercise I am using the hobbies dataset that can be found in the FactoMineR libray. I will try to evaluate how different are the hobbies undertaken by gender, age, marital status and by the enquired professions. Assuming that more demanding professions will leave less space for hobbies or option for less time consuming hobbies. Also there is some hobbies that are stereotypically associated with one or the other gender of the enquired people.</p>
+<p>For this exercise I am using the hobbies dataset that can be found in the FactoMineR libray. I will try to evaluate how different are the hobbies undertaken by gender, age, marital status and by the enquired professions. Will more demanding professions leave less space for hobbies or people will chose less time consuming hobbies? Is there some hobbies that are stereotypically associated with one or the other gender of the enquired people? Is age related with the amount and type of hobbies that inquired undertake?</p>
 </blockquote>
 <p>To explore if my hypothesis holds true, I explored the data trying to understand the following points:</p>
 <ul>
 <li><p>What kind of hobbies are more trendy among each Age, Gender, Profession or Marital Status group.</p>
 <ul>
-<li><p>Linear regressions amongst the following variables:</p></li>
 <li>Hobbies categories Vs Age</li>
 <li>Hobbies categories Vs Gender</li>
 <li>Hobbies categories Vs Profession</li>
-<li><p>Hobbies categories Vs Marital Status</p></li>
+<li>Hobbies categories Vs Marital Status</li>
+</ul></li>
+<li><p>Linear regressions amongst the following variables:</p>
+<ul>
 <li>Number of activities Vs Age</li>
 <li>Number of activities Vs Gender</li>
 <li>Number of activities Vs Profession</li>
-<li><p>Number of activities Vs Marital Status</p></li>
+<li>Number of activities Vs Marital Status</li>
 </ul></li>
 </ul>
-<p>Where is the data from, what does it relate to, what do the variables represent, what has been done to the data before analysis? (max 2 points)</p>
 </div>
 
 
