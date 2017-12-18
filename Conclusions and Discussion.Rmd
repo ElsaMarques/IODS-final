@@ -17,12 +17,29 @@ output:
 
 - In summary, let's have a look on my initial hypothesis and results: 
     - Will more demanding professions leave less space for hobbies or people will chose less time consuming hobbies? 
+        - It seems that the major correlation with the professions is with the unskilled and manual workers that tend to have less hobbies tht might required some more physical work or money. When it comes to the generic hobbies that are easily accessible to all (like reading and listenign music) it seems the diferences are not that dramatic. 
+        - Interesting to note that the main people doing some volunterring are females in the management position. 
+        
+        
+        
     - Is there some hobbies that are stereotypically associated with one or the other gender of the enquired people? 
-        - sdfasfa
+        - After the initial analysis it seemed that knitting is indeed an almost female exclusive hobbie; 
+        - Fishing have more fans in the male enquired people;
+        - It seems that more female are playing music as hobbie; 
+        
+        
         
     - Is age related with the amount and type of hobbies that inquired undertake? 
-   
-![Number of Activitees Vs Age / Gender] http://127.0.0.1:27796/chunk_output/s/AE961FC5/crvyab74amc33/000041.png
+        - It seems there is some correlation with the interest changing accordint age when it comes to more specific hobbies, on the generic hobbies there was not such a significant difference. Also to note that there was less enquired from the higher age groups. So its a bit uncertain if the population really disconnet from hobbies like going to shoes, exhibitions, playing music, etc.. or if the inquired population doesn't the generalized population
         
-        - Our analysis indicated that the amount of hobbies (taking in account the results from both gender) goes up in the 35 - 45 age groups, after that the amount of hobbies will slighly decrease in the females group and more steadly stay up in the males groups.   
+   
+   
+   
+    - Number of activities changing with age?      
+        - Our analysis indicated that the amount of hobbies (taking in account the results from both gender) goes up in the 35 - 45 age groups, after that the amount of hobbies will slighly decrease in the females group and more steadly stay up in the males groups. 
+        
+       
+        
+    - Number of activities changing with profession?
+        - It seems that profession like management have an higher availability to higher number of hobbies. While unskilled and manual work have less hobbies, even  due to less time or money. 
  

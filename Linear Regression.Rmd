@@ -13,19 +13,14 @@ output:
     toc_float: yes 
 ---
 
- > Visually clear and interesting explorations of the variables of interest in the data, from the point of view of your research question. Include interpretations of the distributions and relationships of the variables. Use captions to draw the reader’s focus on the interesting parts of your tables and graphics. (max 8 points)
- 
- > Presentation of the results of your analysis including visualizations and summaries and a thorough interpretation of the results including a validation analysis of the method. (max 16 points)
- 
- 
 ## - Linear regresssion
 
 Linear regression allows you to test the relationship between a target variable and one (simple linear regression) or more explanatory variables (multiple linear regression). With this analysis you can read how the variables relate or not with which others, either positively or negatively related or not at all.
 
 - To explore the previously mentioned hypothesis I check if there is any relationship between the Number of Activities and Age, Profession, Marital Status and Gender. 
 
-```{r}
-hobbies_model <- lm(formula = N.Act ~ Age + Prof + Gender + Marital.St , data = hobbies_)
+```{r, echo = FALSE}
+hobbies_model <- lm(formula = N.Act ~ Age + Prof + Gender + Marital.St , data = Hobbies)
 summary(hobbies_model)
 ```
 
@@ -35,7 +30,7 @@ summary(hobbies_model)
 
 ```{r, echo=FALSE}
 library(ggplot2)
-p1 <- ggplot(data = hobbies, aes(y = nb.activitees, x = Age , fill = Sex)) + geom_boxplot() + geom_smooth(method = "lm")
+p1 <- ggplot(data = Hobbies, aes(y = N.Act, x = Age , fill = Gender)) + geom_boxplot() + geom_smooth(method = "lm")
 p1
 ```
 
@@ -43,16 +38,16 @@ p1
 
 ```{r}
 library(ggplot2)
-p2 <- ggplot(data = hobbies, aes(y = nb.activitees, x = Profession , fill = Sex)) + geom_boxplot() + geom_smooth(method = "lm")
+p2 <- ggplot(data = Hobbies, aes(y = N.Act, x = Prof , fill = Gender)) + geom_boxplot() + geom_smooth(method = "lm")
 p2
 ```
 
 - When it comes to Profession, the number of activitees varies less regarding the gender of the inquires. Only in the management profession one could verify that females are still able to maintain an higher amount of hobbies, comparing to the males with the same profession. This is also the profession (from the ones that were accessed) were we can verify the highest average of activitees undertaken by the enquired. The average amount of hobbies seems more related to your salary or to the amount of physical work you undertake in your job, which means you either have less money to undertaken in several hobbies or you have less energy to do so. As you can verify that unskilled and manual labourer present the lower average number of hobbies. 
 
 
-```{r}
+```{r, echo = FALSE}
 library(ggplot2)
-p3 <- ggplot(data = hobbies_, aes(y = N.Act, x = Marital.St, fill = Gender)) + geom_boxplot()
+p3 <- ggplot(data = Hobbies, aes(y = N.Act, x = Marital.St, fill = Gender)) + geom_boxplot()
 p3
 ```
 
@@ -75,10 +70,17 @@ autoplot(hobbies_model, which= c(1, 2, 5)) +
 
 - Residuals Vs Fitted:
 
+By definition: "Residuals versus fits plot is a scatter plot of residuals on the y axis and fitted values (estimated responses) on the x axis. The plot is used to detect non-linearity, unequal error variances, and outliers."
+
+
 - Normal Q-Q:
+
+By definition: "If the two distributions being compared are similar, the points in the Q–Q plot will approximately lie on the line y = x. If the distributions are linearly related, the points in the Q–Q plot will approximately lie on a line, but not necessarily on the line y = x." "A normal Q–Q plot comparing randomly generated, independent standard normal data on the vertical axis to a standard normal population on the horizontal axis. The linearity of the points suggests that the data are normally distributed."
+
+This is verfied in my hobbies_model. 
 
 - Residuals Vs Leverage:
 
-
+By definition: "Outliers: an outlier is defined as an observation that has a large residual. In other words, the observed value for the point is very different from that predicted by the regression model. Leverage points: A leverage point is defined as an observation that has a value of x that is far away from the mean of x."
      
 
