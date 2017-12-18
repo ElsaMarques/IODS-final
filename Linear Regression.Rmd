@@ -20,15 +20,18 @@ output:
  
 ## - Linear regresssion
 
-Linear regression allows you to test the relationship between a target variable and one (simple linear regression) or more explanatory variables (multiple linear regression). With this analysis you can read how the variable relate or not to which others, either positively or negatively related.
+Linear regression allows you to test the relationship between a target variable and one (simple linear regression) or more explanatory variables (multiple linear regression). With this analysis you can read how the variables relate or not with which others, either positively or negatively related or not at all.
 
+- To explore the previously mentioned hypothesis I check if there is any relationship between the Number of Activities and Age, Profession, Marital Status and Gender. 
 
 ```{r}
-my_model <- lm(formula = nb.activitees ~ Age + Profession + Sex , data = hobbies)
-summary(my_model)
+hobbies_model <- lm(formula = N.Act ~ Age + Prof + Gender + Marital.St , data = hobbies_)
+summary(hobbies_model)
 ```
 
+- The linear model analysis shows the non existence of linear relationship between the age groups form 22-45 and in the Remarried group of inquired people and the number of acivities they undertake. All the other are somehow related to the number of hobbies. 
 
+### Let's analyse case by case with the help of graphs for visualization of the variables in question:  
 
 ```{r, echo=FALSE}
 library(ggplot2)
@@ -36,7 +39,7 @@ p1 <- ggplot(data = hobbies, aes(y = nb.activitees, x = Age , fill = Sex)) + geo
 p1
 ```
 
-- Interestingly the pattern in the amount of hobbies that females and males undertake varies differently with age. You can see how the average in the number of activitees decreases in the females around 35-45years old, maybe at this point female will focus in one of the hobbies they really like instead of keeping several of the, or mayve related to the later observed maternity ages (?). After that age group you can check a drop in the the average of the number of activitees taken, with males average and maximum amount of activities droping one age group latter (at 55-65). 
+- Interestingly the pattern in the amount of hobbies that females and males undertake varies differently with age. You can see how the average in the number of activitees decreases in both genders in the age grouo 35-45, maybe at this point professional and family demands people to focus in one of the hobbies they really like instead of keeping several of them. After that age group you can check a drop in the the average of the number of activitees taken, with females average and maximum amount of activities droping one age group latter (at 55-65). 
 
 ```{r}
 library(ggplot2)
@@ -47,31 +50,35 @@ p2
 - When it comes to Profession, the number of activitees varies less regarding the gender of the inquires. Only in the management profession one could verify that females are still able to maintain an higher amount of hobbies, comparing to the males with the same profession. This is also the profession (from the ones that were accessed) were we can verify the highest average of activitees undertaken by the enquired. The average amount of hobbies seems more related to your salary or to the amount of physical work you undertake in your job, which means you either have less money to undertaken in several hobbies or you have less energy to do so. As you can verify that unskilled and manual labourer present the lower average number of hobbies. 
 
 
-
-
 ```{r}
 library(ggplot2)
 p3 <- ggplot(data = hobbies_, aes(y = N.Act, x = Marital.St, fill = Gender)) + geom_boxplot()
 p3
 ```
 
-- The diferences in the amount of hobbies between gender according to their Marital Status is only visible when takin gin account the average values. 
+- The diferences in the amount of hobbies between gender according to their Marital Status is only visible when taking in account the average values. Single and married females seems to undertake in average an higher number of hobbies than males in the same marital situation. This scenarion is inversed in the case of the divorcee. Widowers and remarried enquired seems to participate in average in the same amount of hobbies, but remarried female enquired present an higher maximum number of activities undertaken. 
 
 
 ### Graphical model validation   
 
-R makes it easy to graphically explore the validity of your model assumptions. If you give a linear model object as the first argument to the plot() function, the function automatically assumes you want diagnostic plots and will produce them. You can check the help page of plotting an lm object by typing ?plot.lm or help(plot.lm) to the R console.
+We might want to check how our linear model actually can be validate by using graphical analysis. Residuals Vs Fitted; Normal Q-Q and Residuals Vs Leverage graphs are used for this purpose: 
 
 ```{r}
 
 #Graphical model validation 
 library(ggfortify)
 
-autoplot(my_model, which= c(1, 2, 5)) +
-     theme_bw()
+autoplot(hobbies_model, which= c(1, 2, 5)) +
+     theme_gray()
 ```
 
 
-     
+- Residuals Vs Fitted:
+
+- Normal Q-Q:
+
+- Residuals Vs Leverage:
+
+
      
 

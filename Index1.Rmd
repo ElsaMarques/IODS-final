@@ -7,7 +7,7 @@ date: "10/12/2017"
 abstract:
   This file describes my work for the final project of the Introduction to Open Data Science course. I am using for this project the "hobbies" dataset, available in the FactoMineR libray. 
   This dataset and its analysis will provide answers to some stereoyped ideas that gender, profession, age, marital status would define the type and amount of hobbies enquired people undertook. 
-  Under the shown analysis one can verify that ??? is not really affecting the type of hobbies selected, while ?? and ?? seem to have a stronger impact in the hobbies you decide to perform. Also the amount of activities taken by enquired people seems to be related with... ?? 
+  Under the shown analysis one can verify that ??? is not really affecting the type of hobbies selected, while ?? and ?? seem to have a stronger impact in the hobbies you decide to perform. Also the amount of activities taken by enquired people seems to be positively increased in certain professions and age groups of the enquired people but not realy by gender. 
   
 output:
   html_document:    
